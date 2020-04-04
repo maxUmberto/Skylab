@@ -1,0 +1,39 @@
+<!-- Crie um botão que ao ser clicado cria um novo elemento em tela com a forma de um quadrado
+vermelho com 100px de altura e largura. Sempre que o botão for clicado um novo quadrado deve
+aparecer na tela.
+ -->
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Exercício 1</title>
+</head>
+
+<body>
+    <div class="botao">
+        <button id="botao">Clique para adicionar um quadrado</button>
+    </div>
+    <div class="box"></div>
+
+    <script>
+        function drawSquare(){
+            let square = document.createElement('button');
+            square.style.width = 100;
+            square.style.height = 100;
+            square.style.backgroundColor = 'red';
+            square.style.margin = 5;
+
+            return square;
+        }
+
+        function displaySquare(){
+
+            let boxElement = document.querySelector('div.box');
+            boxElement.appendChild(drawSquare());
+            // console.log(boxElement);
+        }
+
+        document.querySelector('#botao').onclick = displaySquare;
+    </script>
+</body>
+</html>

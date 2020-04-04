@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Exercício 1</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="app">
+            <button type="button" class="btn btn-success">Success</button>
+            <div class="box" id="box" onmouseover="getRandomColor()"></div>
+        </div>
+    </div>
+
+    <script>
+        var btnElement = document.querySelector('button.btn');
+        var boxElement = document.querySelector('.box');
+
+        btnElement.onclick = function() { 
+            boxElement.style.width = '100px';
+            boxElement.style.height = '100px';
+            boxElement.style.marginTop = '50px';
+            boxElement.style.backgroundColor = '#f00';
+        }
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            boxElement.style.backgroundColor = color;
+        }
+
+        var newColor = getRandomColor(); // #E943F0
+                
+        console.log(newColor);
+    </script>
+</body>
+</html>

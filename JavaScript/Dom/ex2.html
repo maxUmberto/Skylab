@@ -1,0 +1,63 @@
+<!-- Utilizando o resultado do primeiro desafio, toda vez que o usuário passar o mouse por cima de
+algum quadrado troque sua cor para uma cor aleatória gerada pela função abaixo:
+function getRandomColor() {
+    var letters = "0123456789ABCDEF";
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+var newColor = getRandomColor(); // #E943F0 -->
+
+<!-- Crie um botão que ao ser clicado cria um novo elemento em tela com a forma de um quadrado
+vermelho com 100px de altura e largura. Sempre que o botão for clicado um novo quadrado deve
+aparecer na tela.
+ -->
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Exercício 1</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="button">
+            <button type="button" class="btn btn-success">Generate Square</button>
+        </div>
+        <div id="box"></div>
+    </div>
+
+    <script>
+        let buttonElement = document.querySelector('div.container div#button button');
+        let boxElement = document.querySelector('div.container div#box');
+
+        buttonElement.onclick = () => {
+            boxElement.appendChild(createSquare());
+        }
+
+        function createSquare(){
+            let square = document.createElement('button');
+            square.style.width = 100;
+            square.style.height = 100;
+            square.style.backgroundColor = 'red';
+            square.style.margin = 5;
+            square.setAttribute('id', 'square');
+            square.setAttribute('onmouseover', 'getRandomColor(this)');
+
+            return square;
+        }
+
+        function getRandomColor(botao) {
+            let letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            
+            botao.style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>

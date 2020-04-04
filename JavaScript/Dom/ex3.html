@@ -1,0 +1,35 @@
+<!-- A partir do seguinte vetor:
+var nomes = ["Diego", "Gabriel", "Lucas"];
+Preencha uma lista (<ul>) no HTML com os itens da seguinte forma:
+● Diego
+● Gabriel
+● Lucas -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <div class="container">
+        <ul id="lista"></ul>
+    </div>    
+
+    <script>
+        const nomes = ["Diego", "Gabriel", "Lucas", "Max", "Guilherme", "Ricardo"];
+        let lista = document.querySelector('div.container ul#lista');
+
+        document.querySelector('body').onload = fillList;
+
+        function fillList(){
+            for(nome of nomes){
+                let li = document.createElement('li');
+                li.innerHTML = nome;
+                lista.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>
